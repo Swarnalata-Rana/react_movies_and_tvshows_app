@@ -1,33 +1,117 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  background-color: black;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.navbar-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 40px;
+  font-family: Georgia;
+  border: red solid 1px;
+  height: 80px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.search-main {
+  border: red solid 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.search-bar {
+  background-color: white;
+  border-radius: 9px;
+  height: 27px;
+  width: 300px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.search-button {
+  border: none;
+  background-color: white;
+  color: black;
+  border-radius: 9px;
+  height: 30px;
+  width: 80px;
+  cursor: pointer;
+  outline: none;
+}
+
+.homepage-main {
+  width: 1200px;
+  border: 1px solid red;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.homepage-main,
+.no-movies-found {
+  color: white;
+  font-size: 20px;
+  font-family: Georgia;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.moviecard-main {
+  width: 200px;
+  padding: 10.9px;
+  background-color: white;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22.7px;
+  list-style: none;
+}
+
+.detailing-rating {
+  display: flex;
+  justify-content: space-between;
+  /* color: white;         */
+}
+
+.moviecard-main:hover {
+  transform: scale(1.05);
+  background-color: rgb(216, 169, 169);
+}
+
+.rating-btn,
+.detailing-btn {
+  background: gray;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.detailing-rating {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-main {
+  border: red solid 1px;
+  font-size: 20px;
+  color: white;
+  font-family: Georgia;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
 }
