@@ -1,13 +1,13 @@
 import React from 'react'
 
-const FilmCard = () => {
+const FilmCard = ({film}) => {
     return (
         <>
             <div className="moviecard-main">
-                <img />
+                <img src={film.Poster} width="150" />
                 <div>
-                    <p></p>
-                    <p></p>
+                    <p>{film.Title}</p>
+                    <p>{film.Year}</p>
                 </div>
                 <div className="detailing-rating">
                     <button className="rating-btn">Rating</button>

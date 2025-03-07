@@ -1,10 +1,13 @@
 import React from 'react'
 import HomePage from './components/HomePage';
+import { FilmProvider } from './context/FilmContext';
 
 const page = () => {
   return (
     <>
-      <HomePage />
+      <FilmProvider>
+        <HomePage />
+      </FilmProvider>
     </>
   )
 }

@@ -1,26 +1,38 @@
-import React from 'react'
+"use client"
+import React, { useContext, useEffect} from 'react'
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Search from './Search';
 import FilmCard from './FilmCard';
+import { FilmContext } from '../context/FilmContext';
 
 const HomePage = () => {
+    const { films, fetchFilms } = useContext(FilmContext);
+
+
+    useEffect(() => {
+        fetchFilms("avengers");
+    }, []);
+
+    let filmcontent;
+    if (films.length > 0) {
+        filmcontent = films.map((film) =>
+            <FilmCard
+                key={films.imdbID}
+                film={film}
+            />);
+    } else {
+        filmcontent = <p className="no-movies-found">Oops! Sorry, no movies found.</p>;
+    }
+
+
     return (
         <>
             <Navbar />
             <Search />
             <div className="homepage-main">
                 <div className="movie-list">
-                <FilmCard />
-                <FilmCard />
-                <FilmCard />
-                <FilmCard />
-                <FilmCard />
-                <FilmCard />
-                <FilmCard />
-                <FilmCard />
-                <FilmCard />
-                <FilmCard />
+                    {filmcontent}
                 </div>
             </div>
             <Footer />
