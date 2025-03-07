@@ -1,6 +1,18 @@
-import React from 'react'
+"use client";
+import React, {useState}from 'react'
 
-const Search = () => {
+const Search = ({onSearch}) => {
+
+    const [query, setQuery] = useState("");
+
+    const handleSearch = () => {
+        if (query.length > 0) {
+            onSearch(query);
+        } else {
+            alert("Please enter a movie name!");
+        }
+    };
+
     return (
         <>
             <div className="search-main">
@@ -8,8 +20,10 @@ const Search = () => {
                     className="search-bar"
                     type="text"
                     placeholder="Search movies & TV Shows"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
                 />
-                <button className="search-button" >Search</button>
+                <button className="search-button"onClick={handleSearch} >Search</button>
             </div>
         </>
     )

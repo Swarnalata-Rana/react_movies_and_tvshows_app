@@ -1,5 +1,5 @@
 "use client"
-import React, { useContext, useEffect} from 'react'
+import React, { useContext, useEffect } from 'react'
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Search from './Search';
@@ -9,6 +9,9 @@ import { FilmContext } from '../context/FilmContext';
 const HomePage = () => {
     const { films, fetchFilms } = useContext(FilmContext);
 
+    // if (films.length === 0) {
+    //     fetchFilms("avengers");
+    // }
 
     useEffect(() => {
         fetchFilms("avengers");
@@ -29,7 +32,7 @@ const HomePage = () => {
     return (
         <>
             <Navbar />
-            <Search />
+            <Search onSearch={fetchFilms} />
             <div className="homepage-main">
                 <div className="movie-list">
                     {filmcontent}
