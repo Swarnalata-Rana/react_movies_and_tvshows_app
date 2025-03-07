@@ -15,17 +15,19 @@ const HomePage = () => {
 
     useEffect(() => {
         fetchFilms("avengers");
+        fetchFilms("hello");
+        fetchFilms("tiger");
     }, []);
 
     let filmcontent;
     if (films.length > 0) {
         filmcontent = films.map((film) =>
             <FilmCard
-                key={films.imdbID}
+                key={film.imdbID}
                 film={film}
             />);
     } else {
-        filmcontent = <p className="no-movies-found">Oops! Sorry, no movies found.</p>;
+        filmcontent = <p id="no-movies-found">Oops! Sorry, no movies found.</p>;
     }
 
 
