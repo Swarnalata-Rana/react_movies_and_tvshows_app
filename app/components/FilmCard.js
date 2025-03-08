@@ -6,15 +6,26 @@ import FilmDetails from "./FilmDetails";
 
 const FilmCard = ({ film }) => {
     const { fetchFilmDetails } = useContext(FilmContext);
-    const [showModal, setShowModal] = useState(false);
+    const [showDetailModal, setShowDetailModal] = useState(false);
+    const [showRatingModal, setShowRatingModal] = useState(false);
 
+    // DetailModal
     const handleDetailClick = () => {
         fetchFilmDetails(film.imdbID);
-        setShowModal(true);
+        setShowDetailModal(true);
     };
-    const handleCloseModal = () => {
-        setShowModal(false);
+    const handleCloseDetailModal = () => {
+        setShowDetailModal(false);
     };
+
+    // RatingModal
+    const handleRatingClick = () => {
+        setShowRatingModal(true)
+    }
+
+    const handleCloseRatingModal = () => {
+        setShowRatingModal(false)
+    }
 
     return (
         <>
@@ -25,11 +36,12 @@ const FilmCard = ({ film }) => {
                     <p>{film.Year}</p>
                 </div>
                 <div className="details-rating">
-                    <button className="rating-btn"><Rating /></button>
+                    <button className="rating-btn" onClick={handleRatingClick}>Rating</button>
                     <button className="detailing-btn" onClick={handleDetailClick}>Details</button>
                 </div>
             </div>
-            {showModal && <FilmDetails onClose={handleCloseModal} />}
+            {showDetailModal && <FilmDetails onCloseD={handleCloseDetailModal} />}
+            {showRatingModal && <Rating onCloseR={handleCloseRatingModal} props={film} />}
 
         </>
     )

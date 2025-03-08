@@ -1,13 +1,15 @@
 "use client";
-import React, {useState}from 'react'
+import React, { useContext, useState } from 'react'
+import { FilmContext } from '../context/FilmContext';
 
-const Search = ({onSearch}) => {
+const Search = () => {
+    const { fetchFilms } = useContext(FilmContext);
 
     const [query, setQuery] = useState("");
 
     const handleSearch = () => {
         if (query.length > 0) {
-            onSearch(query);
+            fetchFilms(query);
         } else {
             alert("Please enter a movie name!");
         }
@@ -23,7 +25,7 @@ const Search = ({onSearch}) => {
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                 />
-                <button className="search-button"onClick={handleSearch} >Search</button>
+                <button className="search-button" onClick={handleSearch} >Search</button>
             </div>
         </>
     )

@@ -142,7 +142,7 @@
     text-align: center;
 }
 
-.close-btn {
+.close-btnD {
     background: #FF1493;
     color: white;
     border: none;
@@ -206,3 +206,34 @@
 
 /* Rating */
 
+.rating-main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: gold;
+}
+
+.rating-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+.close-btnR {
+    background: #FF1493;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}

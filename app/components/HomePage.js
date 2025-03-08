@@ -15,7 +15,7 @@ const HomePage = () => {
 
     useEffect(() => {
         fetchFilms("avengers");
-        fetchFilms("hello");
+        fetchFilms("fan");
         fetchFilms("tiger");
     }, []);
 
@@ -34,7 +34,7 @@ const HomePage = () => {
     return (
         <>
             <Navbar />
-            <Search onSearch={fetchFilms} />
+            <Search />
             <div className="homepage-main">
                 <div className="movie-list">
                     {filmcontent}

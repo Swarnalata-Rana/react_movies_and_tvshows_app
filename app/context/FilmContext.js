@@ -24,11 +24,10 @@ export const FilmProvider = ({ children }) => {
 
         if (!imdbID) {
             console.log("ImbdID is not match");
-        }else{
-
+        } else {
             setSelectedFilm(null);
         }
-        
+
         fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=9ac3240b`)
             .then(res => res.json())
             .then(data => {

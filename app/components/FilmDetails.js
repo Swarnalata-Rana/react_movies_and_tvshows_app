@@ -2,7 +2,7 @@
 import React, { useContext } from "react";
 import { FilmContext } from "../context/FilmContext";
 
-const FilmDetails = ({ onClose }) => {
+const FilmDetails = ({ onCloseD }) => {
     const { selectedFilm } = useContext(FilmContext);
 
     if (!selectedFilm) {
@@ -20,8 +20,7 @@ const FilmDetails = ({ onClose }) => {
                     <p className="details-pTag">Year: {selectedFilm.Year}</p>
                     <p className="details-pTag">IMDB Rating Details: {selectedFilm.imdbRating}</p>
                     <p className="details-pTag">User Rating Details:</p>
-                    <button className="close-btn" onClick={onClose}>Close</button>
-
+                    <button className="close-btnD" onClick={onCloseD}>Close</button>
                 </div>
             </div>
         </>
