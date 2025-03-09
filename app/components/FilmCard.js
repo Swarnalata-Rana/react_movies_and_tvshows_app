@@ -2,7 +2,7 @@
 import React, { useContext, useState } from "react";
 import Rating from "./Rating";
 import { FilmContext } from "../context/FilmContext";
-import FilmDetails from "./FilmDetails";
+import FilmDetail from "./FilmDetail";
 
 const FilmCard = ({ film }) => {
     const { fetchFilmDetails } = useContext(FilmContext);
@@ -35,16 +35,21 @@ const FilmCard = ({ film }) => {
                     <p>{film.Title}</p>
                     <p>{film.Year}</p>
                 </div>
+                <div className='avg'>Avg:{ } /5</div>
+
                 <div className="details-rating">
                     <button className="rating-btn" onClick={handleRatingClick}>Rating</button>
                     <button className="detailing-btn" onClick={handleDetailClick}>Details</button>
                 </div>
             </div>
-            {showDetailModal && <FilmDetails onCloseD={handleCloseDetailModal} />}
+            {showDetailModal && <FilmDetail onCloseD={handleCloseDetailModal} />}
             {showRatingModal && <Rating onCloseR={handleCloseRatingModal} props={film} />}
 
         </>
     )
 }
-
 export default FilmCard;
+
+
+
+

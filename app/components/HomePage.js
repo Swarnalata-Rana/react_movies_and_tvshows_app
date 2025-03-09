@@ -15,7 +15,7 @@ const HomePage = () => {
 
     useEffect(() => {
         fetchFilms("avengers");
-        fetchFilms("fan");
+        fetchFilms("the boss");
         fetchFilms("tiger");
     }, []);
 

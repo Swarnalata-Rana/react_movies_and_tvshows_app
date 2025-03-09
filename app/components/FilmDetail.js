@@ -13,7 +13,7 @@ const FilmDetails = ({ onCloseD }) => {
     return (
         <>
             <div className="details-main">
-                <div className="details-content">Details
+                <div className="details-content">
                     <h2 className="details-title">Title: {selectedFilm.Title}</h2>
                     <img className="details-img" src={selectedFilm.Poster} width="200" />
                     <p className="details-pTag">Plot: {selectedFilm.Plot}</p>
