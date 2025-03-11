@@ -1,6 +1,6 @@
-* {
-    background-color: rgb(14, 14, 21);
 
+* {
+    background-color: black;
 }
 
 /* Navbar */
@@ -9,9 +9,13 @@
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 40px;
+    font-size: 20px;
     font-family: Georgia;
     height: 100px;
+    height: 60px;
+    background-color: rgb(14, 14, 21);
+    position: fixed;
+    width: 100%;
 }
 
 /* Search */
@@ -19,16 +23,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150px;
+    height: 250px;
     gap: 10px;
-    margin-bottom: 20px;
+    /* padding-bottom: 40px; */
 }
 
 .search-bar {
     background-color: white;
-    border-radius: 9px;
+    border-radius: 5px;
     height: 30px;
-    width: 350px;
+    width: 500px;
     font-size: 15px;
     border: 1px solid #ccc;
     outline: none;
@@ -38,30 +42,38 @@
     border: none;
     background-color: white;
     color: black;
-    border-radius: 9px;
+    border-radius: 5px;
     height: 30px;
     width: 80px;
     cursor: pointer;
-    outline: none;
 }
 
 /* HomePage */
+
 .homepage-main {
+    background-color: black;
     width: 1200px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    gap: 22px;
 }
+.home-page1{
+   padding-bottom: 70px;
+   /* border: 1px solid red; */
 
-.movie-list {
+}
+.film-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 22.7px;
+    gap: 49.7px;
     list-style: none;
+    background-color: black;
+    margin-top:100px;
+
 }
+
 .homepage-main,
-#no-movies-found {
+#no-film-found {
     color: white;
     font-size: 20px;
     font-family: Georgia;
@@ -70,58 +82,95 @@
     align-items: center;
 }
 
-.moviecard-main {
+/* FilmCard */
+.filmcard-main {
     width: 200px;
-    padding: 10.9px;
-    background-color: white;
-    border-radius: 8px;
+    border-radius: 0px 15px 0px 0px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-    color: white;
+    background-color: rgb(14, 14, 21);
 }
 
-.detailing-rating {
-    display: flex;
-    justify-content: space-between;
+.filmcard-main img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
 }
 
-.moviecard-main:hover {
+.filmcard-content {
+    /* height: 220px; */
+    background-color: rgb(14, 14, 21);
+}
+
+.filmcard-main:hover {
     transform: scale(1.05);
-    background-color: gray;
 }
 
-.detailing-btn,
+.film-title {
+    background-color: rgb(14, 14, 21);
+    font-family: georgia;
+    font-size: 17px;
+    padding-top: 15px;
+
+}
+
+.film-year {
+    font-size: 14px;
+    background-color: rgb(14, 14, 21);
+
+
+}
+
+.avg {
+    color: white;
+    font-family: georgia;
+    font-size: 17px;
+    background-color: rgb(14, 14, 21);
+}
+.span-star{
+    color: gold;
+    font-size: 20px;
+    background-color: rgb(14, 14, 21);
+
+}
+.rating-btn-div {
+    margin-top: 10px;
+    background-color: rgb(14, 14, 21);
+
+}
+
 .rating-btn {
     color: white;
+    width: 180px;
     border: none;
-    padding: 6px 10px;
-    border-radius: 5px;
+    padding: 8px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 14px;
-    font-weight: bold;
-    background-color: #FF1493;
+    background-color: rgb(209, 148, 17);
+}
+
+.detailing-btn {
+    color: rgb(107, 107, 238);
+    width: 180px;
+    border: none;
+    padding: 8px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    background-color: #26282b;
 }
 
 .detailing-btn:hover,
 .rating-btn:hover {
-    background-color: #FF69B4;
+    background-color: gray;
 }
 
-.detailing-rating {
-    display: flex;
-    justify-content: space-between;
-}
-
-.footer-main {
-    /* border: red solid 1px; */
-    font-size: 20px;
-    color: white;
-    font-family: Georgia;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-}
-
+/* FilmDetail */
 .details-main {
     position: fixed;
     display: flex;
@@ -132,76 +181,61 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
+    /* font-size: 17px; */
 }
 
-.details-content {
+.details-bg {
     background-color: white;
     padding: 20px;
-    width: 500px;
+    /* width: 800px; */
+    /* height: 460px; */
     border-radius: 10px;
-    text-align: center;
+    display: flex;
+    /* justify-content: space-between; */
 }
 
+.close-btnD1{
+    padding-top: 10px;
+    padding-bottom: 22px;
+}
 .close-btnD {
-    background-color: #FF1493;
     color: white;
+    width: 180px;
     border: none;
-    padding: 7px 15px;
+    padding: 8px;
+    border-radius: 15px;
     cursor: pointer;
-    border-radius: 5px;
-    font-size: 15px;
+    font-size: 14px;
+    text-align: center;
+    background-color: rgb(209, 148, 17);
+  
+}
+
+.close-btnD:hover {
+    background-color: gray;
 }
 
 .details-img {
-    width: 200px;
-    max-width: 200px;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    padding: 17px;
+    width: 270px;
+    border-radius: 0px 15px;
+
 }
 
-.details-title {
-    font-size: 25px;
-    margin-bottom: 10px;
+.details-content{
+    height: 100%;
+    padding: 10px;
+    width: auto;
+    font-size: 14px;
+    /* border: 1px red solid; */
 }
-
 .details-pTagp {
-    font-size: 10px;
+    font-size: 30px;
     margin-bottom: 8px;
     color: white;
 }
-
-
-
-.moviecard-main {
-    width: 200px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: white;
-    padding: 10px;
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.moviecard-main:hover {
-    transform: scale(1.05);
-}
-
-.moviecard-main img {
-    width: 100%;
-    border-radius: 5px;
-}
-
-.moviecard-main p {
-    margin: 5px 0;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.details-rating {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+.details-plot{
+    width: 300px;
 }
 
 /* Rating */
@@ -223,32 +257,73 @@
 .rating-content {
     background-color: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 6px;
     text-align: center;
-    width: 300px;
+    width: 350px;
+    font-family: georgia;
+
+}
+
+.rate-this {
+    font-family: georgia;
+    font-size: 17px;
+    padding-top: 20px;
+}
+
+.rate-title {
+    font-family: georgia;
+    font-size: 23px;
+    /* padding-bottom: 15px;
+    padding-top: 20px; */
+}
+
+.avgR {
+    font-size: 19px;
 }
 
 .close-btnR {
-    background-color: #FF1493;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    margin-bottom: 10px;
+    background-color: #26282b;
+    color: rgb(107, 107, 238);
+    /* border: none;
+    padding: 7px;
+    margin-bottom: 20px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 15px;
+    width: 150px; */
+    /* color: white; */
+    width: 150px;
+    border: none;
+    padding: 8px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    /* background-color: rgb(209, 148, 17); */
 }
-.rate-btn{
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    background-color: #FF1493;
 
-}
-.avg{
+.rate-btn {
+    /* color: white;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 7px;
+    width: 150px;
+    background-color: rgb(209, 148, 17); */
     color: white;
+    width: 150px;
+    border: none;
+    padding: 8px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    background-color: rgb(209, 148, 17);
+}
+
+.rate-btn:hover,
+.close-btnR:hover {
+    background-color: gray;
 }
 
 .star {
@@ -258,7 +333,58 @@
 }
 
 .selected {
-    color: gold; 
+    color: gold;
 }
 
+/* Footer */
+.footer-main {
+    font-size: 20px;
+    color: white;
+    font-family: Georgia;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: rgb(14, 14, 21);
+
+}
+
+/* Photos */
+.photos-main{
+    width: 1200px;
+    margin: auto;
+
+}
+
+.Celebrities-pic{
+    color: white;
+    font-family: georgia;
+    font-size: 30px;
+    padding-bottom: 60px;
+}
+.photos-div {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.photo-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+}
+
+.photo-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.photo-name{
+    /* border: 1px solid red; */
+    text-align: center;
+    font-size: 18px;
+    font-family: georgia;
+    margin-top: 8px;
+}
 

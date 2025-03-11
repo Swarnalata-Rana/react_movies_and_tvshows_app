@@ -45,67 +45,74 @@ const Rating = ({ onCloseR, FilmTitle, updateAvgRating, averageRating }) => {
 
     const handleSaveRating = () => {
         if (selectedRating === 0) {
-            return null; 
+            return null;
         } else {
-            updateAvgRating(selectedRating); 
+            updateAvgRating(selectedRating);
 
         }
-
         onCloseR();
     };
 
     return (
         <div className="rating-main">
             <div className="rating-content">
-                <div>Rate This</div>
-                <div>{FilmTitle.Title}</div>
-                <div className="avg">Avg: {averageRating} /5</div>
+                <did className="rating-content1">
+                    <div className='rate-this'>Rate This</div>
+                    <div className='rate-title'>{FilmTitle.Title}</div>
+                    <div className="avgR"> <span className='span-star'>★</span> : {averageRating} /5</div>
 
-                <div>
-                    <span
-                        className={`star ${selectedRating >= 1 ? 'selected' : ''}`}
-                        onClick={handleRatingClick1}
-                    >
-                        ★
-                    </span>
-                    <span
-                        className={`star ${selectedRating >= 2 ? 'selected' : ''}`}
-                        onClick={handleRatingClick2}
-                    >
-                        ★
-                    </span>
-                    <span
-                        className={`star ${selectedRating >= 3 ? 'selected' : ''}`}
-                        onClick={handleRatingClick3}
-                    >
-                        ★
-                    </span>
-                    <span
-                        className={`star ${selectedRating >= 4 ? 'selected' : ''}`}
-                        onClick={handleRatingClick4}
-                    >
-                        ★
-                    </span>
-                    <span
-                        className={`star ${selectedRating >= 5 ? 'selected' : ''}`}
-                        onClick={handleRatingClick5}
-                    >
-                        ★
-                    </span>
-                </div>
+                    <div>
+                        <span
+                            className={`star ${selectedRating >= 1 ? 'selected' : ''}`}
+                            onClick={handleRatingClick1}
+                        >
+                            ★
+                        </span>
+                        <span
+                            className={`star ${selectedRating >= 2 ? 'selected' : ''}`}
+                            onClick={handleRatingClick2}
+                        >
+                            ★
+                        </span>
+                        <span
+                            className={`star ${selectedRating >= 3 ? 'selected' : ''}`}
+                            onClick={handleRatingClick3}
+                        >
+                            ★
+                        </span>
+                        <span
+                            className={`star ${selectedRating >= 4 ? 'selected' : ''}`}
+                            onClick={handleRatingClick4}
+                        >
+                            ★
+                        </span>
+                        <span
+                            className={`star ${selectedRating >= 5 ? 'selected' : ''}`}
+                            onClick={handleRatingClick5}
+                        >
+                            ★
+                        </span>
+                    </div>
 
-                <div>
-                    <button className="rate-btn" onClick={handleSaveRating}>
-                        Save Rate
-                    </button>
-                </div>
 
-                <button className="close-btnR" onClick={onCloseR}>
-                    Close
-                </button>
+                    <div>
+                        <button className="rate-btn" onClick={handleSaveRating}>
+                            Save Rate
+                        </button>
+                    </div>
+
+                    <div className='close-btnD1'>
+                        <button className="close-btnR" onClick={onCloseR}>
+                            Close
+                        </button>
+                    </div>
+
+                </did>
+
             </div>
         </div>
     );
 };
 
 export default Rating;
+

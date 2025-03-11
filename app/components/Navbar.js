@@ -4,7 +4,7 @@ const Navbar = () => {
     return (
         <>
             <div className='navbar-main'>
-                React Movies & TV Shows App
+                Movies & TV Shows App
             </div>
         </>
     )

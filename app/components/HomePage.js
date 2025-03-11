@@ -5,6 +5,7 @@ import Footer from './Footer';
 import Search from './Search';
 import FilmCard from './FilmCard';
 import { FilmContext } from '../context/FilmContext';
+import Photo from './Photo';
 
 const HomePage = () => {
     const { films, fetchFilms } = useContext(FilmContext);
@@ -13,10 +14,10 @@ const HomePage = () => {
     //     fetchFilms("avengers");
     // }
 
-    useEffect(() => {
-        fetchFilms("avengers");
-        fetchFilms("the boss");
+    useEffect(function () {
         fetchFilms("tiger");
+        // fetchFilms("ram");
+
     }, []);
 
     let filmcontent;
@@ -27,7 +28,7 @@ const HomePage = () => {
                 film={film}
             />);
     } else {
-        filmcontent = <p id="no-movies-found">Oops! Sorry, no movies found.</p>;
+        filmcontent = <p id="no-film-found">Oops! Sorry, no movies found.</p>;
     }
 
 
@@ -35,9 +36,14 @@ const HomePage = () => {
         <>
             <Navbar />
             <Search />
-            <div className="homepage-main">
-                <div className="movie-list">
-                    {filmcontent}
+            <div>
+                <div className="homepage-main">
+                    <div className='home-page1'>
+                        <Photo />
+                        <div className="film-list">
+                            {filmcontent}
+                        </div>
+                    </div>
                 </div>
             </div>
             <Footer />

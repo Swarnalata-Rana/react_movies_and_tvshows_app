@@ -17,7 +17,7 @@ export const FilmProvider = ({ children }) => {
                     setFilms([]);
                 }
             })
-            .catch(error => console.error("Some Network Error:", error));
+        // .catch(error => console.error("Some Network Error:", error));
     }
 
     function fetchFilmDetails(imdbID) {
@@ -35,7 +35,7 @@ export const FilmProvider = ({ children }) => {
                     setSelectedFilm(data);
                 }
             })
-            .catch(error => console.error("Some Network Error:", error));
+        // .catch(error => console.error("Some Network Error:", error));
     }
 
     return (
