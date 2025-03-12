@@ -43,14 +43,11 @@ const Rating = ({ onCloseR, FilmTitle, updateAvgRating, averageRating }) => {
         }
     }
 
-    const handleSaveRating = () => {
-        if (selectedRating === 0) {
-            return null;
-        } else {
+    function handleSaveRating() {
+        if (selectedRating) {
             updateAvgRating(selectedRating);
-
+            onCloseR();
         }
-        onCloseR();
     };
 
     return (
@@ -115,4 +112,3 @@ const Rating = ({ onCloseR, FilmTitle, updateAvgRating, averageRating }) => {
 };
 
 export default Rating;
-

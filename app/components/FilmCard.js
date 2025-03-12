@@ -4,33 +4,21 @@ import FilmDetail from './FilmDetail';
 import { FilmContext } from '../context/FilmContext';
 
 const FilmCard = ({ film }) => {
+
     const { fetchFilmDetails } = useContext(FilmContext);
+
     const [showDetailModal, setShowDetailModal] = useState(false);
     const [showRatingModal, setShowRatingModal] = useState(false);
     const [ratings, setRatings] = useState([]);
     const [avgRating, setAvgRating] = useState(0);
 
-    useEffect(function () {
-        const ratingKey = `avgRating-${film.imdbID}`;
-        const storedAvg = localStorage.getItem(ratingKey);
-
-        if (storedAvg) {
-            setAvgRating(parseFloat(storedAvg)); // If value thiba, set karidaba
-        } else {
-            setAvgRating(0); // Otherwise, default to 0 daba
-        }
-    }, [film.imdbID]);
-
-
     function calculateAvgRating(newRatings) {
         let sum = 0;
         let i = 0;
-
         while (i < newRatings.length) {
             sum += newRatings[i];
             i++;
         }
-
         return sum / newRatings.length;
     }
 
@@ -47,23 +35,35 @@ const FilmCard = ({ film }) => {
         }
     }
 
+    useEffect(function () {
+        const ratingKey = `avgRating-${film.imdbID}`;
+        const storedAvg = localStorage.getItem(ratingKey);
+
+        if (storedAvg) {
+            setAvgRating(parseFloat(storedAvg)); // jadi value thiba, set karidaba
+        } else {
+            setAvgRating(0); // na hele  0 daba
+        }
+    }, [film.imdbID]);
+
     // DetalisModal
-    const handleDetailClick = () => {
-        fetchFilmDetails(film.imdbID);
+    function handleDetailClick() {
         setShowDetailModal(true);
-    };
+        fetchFilmDetails(film.imdbID);
+    }
 
-    const handleCloseDetailModal = () => {
+    function handleCloseDetailModal() {
         setShowDetailModal(false);
-    };
-    // RatingModal
-    const handleRatingClick = () => {
+    }
+    //RatingModal
+    function handleRatingClick() {
         setShowRatingModal(true);
-    };
+    }
 
-    const handleCloseRatingModal = () => {
+    function handleCloseRatingModal() {
         setShowRatingModal(false);
-    };
+    }
+
 
     return (
         <>
@@ -71,20 +71,22 @@ const FilmCard = ({ film }) => {
             <div className="filmcard-main">
                 <img src={film.Poster} />
                 <div className='filmcard-content'>
-                    <p className='film-title'>{film.Title}</p>
-                    <p className='film-year'>{film.Year}</p>
-                    <div className="avg">
-                        <span className='span-star'>★</span> : {avgRating} / 5
-                    </div>
-                    <div className='rating-btn-div'>
-                        <button className="rating-btn" onClick={handleRatingClick}>
-                            Rate
-                        </button>
-                    </div>
-                    <div className='rating-btn-div'>
-                        <button className="detailing-btn" onClick={handleDetailClick}>
-                            Details
-                        </button>
+                    <div className='filmcard-content1'>
+                        <p className='film-title'>{film.Title}</p>
+                        <p className='film-year'>{film.Year}</p>
+                        <div className="avg">
+                            <span className='span-star'>★</span> : {avgRating} / 5
+                        </div>
+                        <div className='rating-btn-div'>
+                            <button className="rating-btn" onClick={handleRatingClick}>
+                                Rate
+                            </button>
+                        </div>
+                        <div className='rating-btn-div'>
+                            <button className="detailing-btn" onClick={handleDetailClick}>
+                                Details
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

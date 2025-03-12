@@ -5,8 +5,10 @@ import { FilmContext } from "../context/FilmContext";
 const FilmDetails = ({ onCloseD, userRating }) => {
     const { selectedFilm } = useContext(FilmContext);
 
-    if (!selectedFilm) {
-        // console.log("No selected film available");
+    if (selectedFilm) {
+        console.log(selectedFilm);
+    }
+    else {
         return null;
     }
 

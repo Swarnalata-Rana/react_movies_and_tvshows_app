@@ -10,13 +10,9 @@ import Photo from './Photo';
 const HomePage = () => {
     const { films, fetchFilms } = useContext(FilmContext);
 
-    // if (films.length === 0) {
-    //     fetchFilms("avengers");
-    // }
-
     useEffect(function () {
         fetchFilms("tiger");
-        // fetchFilms("ram");
+        // fetchFilms("gogol");
 
     }, []);
 
@@ -35,9 +31,9 @@ const HomePage = () => {
     return (
         <>
             <Navbar />
-            <Search />
             <div>
                 <div className="homepage-main">
+                    <Search />
                     <div className='home-page1'>
                         <Photo />
                         <div className="film-list">
