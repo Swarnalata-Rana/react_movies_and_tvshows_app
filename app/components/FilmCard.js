@@ -25,7 +25,6 @@ const FilmCard = ({ film }) => {
     function handleNewRating(newRating) {
         const updatedRatings = [...ratings, newRating];
         setRatings(updatedRatings);
-
         if (updatedRatings.length > 0) {
             const newAvgRating = calculateAvgRating(updatedRatings).toFixed(1);
             setAvgRating(newAvgRating);
@@ -42,7 +41,7 @@ const FilmCard = ({ film }) => {
         if (storedAvg) {
             setAvgRating(parseFloat(storedAvg)); // jadi value thiba, set karidaba
         } else {
-            setAvgRating(0); // na hele  0 daba
+            setAvgRating(0); // na hele  0 daba 
         }
     }, [film.imdbID]);
 
