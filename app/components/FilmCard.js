@@ -1,3 +1,4 @@
+"use client"
 import React, { useContext, useEffect, useState } from 'react';
 import Rating from './Rating';
 import FilmDetail from './FilmDetail';
@@ -22,28 +23,31 @@ const FilmCard = ({ film }) => {
         return sum / newRatings.length;
     }
 
-    function handleNewRating(newRating) {
-        const updatedRatings = [...ratings, newRating];
-        setRatings(updatedRatings);
-        if (updatedRatings.length > 0) {
-            const newAvgRating = calculateAvgRating(updatedRatings).toFixed(1);
-            setAvgRating(newAvgRating);
-            localStorage.setItem(`avgRating-${film.imdbID}`, newAvgRating);
-        } else {
-            setAvgRating(0);
-        }
-    }
-
     useEffect(function () {
         const ratingKey = `avgRating-${film.imdbID}`;
         const storedAvg = localStorage.getItem(ratingKey);
 
         if (storedAvg) {
-            setAvgRating(parseFloat(storedAvg)); // jadi value thiba, set karidaba
-        } else {
-            setAvgRating(0); // na hele  0 daba 
+            setAvgRating(Number(storedAvg));
+        }
+        else {
+            setAvgRating(0);
         }
     }, [film.imdbID]);
+
+    function handleNewRating(newRating) {
+        const updatedRatings = [...ratings, newRating];
+        setRatings(updatedRatings);
+
+        if (updatedRatings.length > 0) {
+            const newAvgRating = calculateAvgRating(updatedRatings).toFixed(1);
+            setAvgRating(newAvgRating);
+            localStorage.setItem(`avgRating-${film.imdbID}`, newAvgRating);
+        }
+        else {
+            setAvgRating(0);
+        }
+    }
 
     // DetalisModal
     function handleDetailClick() {
@@ -54,6 +58,7 @@ const FilmCard = ({ film }) => {
     function handleCloseDetailModal() {
         setShowDetailModal(false);
     }
+
     //RatingModal
     function handleRatingClick() {
         setShowRatingModal(true);
@@ -100,7 +105,7 @@ const FilmCard = ({ film }) => {
                 <Rating
                     onCloseR={handleCloseRatingModal}
                     FilmTitle={film}
-                    updateAvgRating={handleNewRating}
+                    storeUserRating={handleNewRating}
                     averageRating={avgRating}
                 />
             )}

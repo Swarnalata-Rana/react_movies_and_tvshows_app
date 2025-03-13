@@ -57,7 +57,6 @@
 
 .home-page1 {
     padding-bottom: 70px;
-
 }
 
 .film-list {
@@ -67,7 +66,6 @@
     list-style: none;
     background-color: black;
     margin-top: 100px;
-
 }
 
 .homepage-main,
@@ -85,7 +83,6 @@
 .photos-main {
     width: 1200px;
     margin: auto;
-
 }
 
 .Celebrities-pic {
@@ -98,7 +95,6 @@
 .photos-div {
     display: flex;
     justify-content: space-between;
-
 }
 
 .photo-img {
@@ -303,7 +299,6 @@
     text-align: center;
     width: 350px;
     font-family: georgia;
-
 }
 
 .rate-this {
@@ -315,7 +310,6 @@
 .rate-title {
     font-family: georgia;
     font-size: 23px;
-
 }
 
 .avgR {

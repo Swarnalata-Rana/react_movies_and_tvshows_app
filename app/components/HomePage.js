@@ -8,6 +8,7 @@ import { FilmContext } from '../context/FilmContext';
 import Photo from './Photo';
 
 const HomePage = () => {
+
     const { films, fetchFilms } = useContext(FilmContext);
 
     useEffect(function () {

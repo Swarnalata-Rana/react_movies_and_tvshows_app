@@ -27,7 +27,7 @@ export const FilmProvider = ({ children }) => {
 
     function fetchFilmDetails(imdbID) {
         if (imdbID) {
-            // console.log("Reset the priviuos value");
+            // console.log("Reset the priviuos details value");
             setSelectedFilm(null);
         }
 
