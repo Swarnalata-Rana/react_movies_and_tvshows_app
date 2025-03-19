@@ -49,14 +49,20 @@ function FilmCard({ film }) {
         localStorage.setItem(`avgRating-${film.imdbID}`, newAvgRating);
     }
 
-
+    // DetailsModal
     function openDetailModal() {
         setShowDetailModal(true);
         fetchFilmDetails(film.imdbID);
     }
-
+    function ShowDetailModal() {
+        setShowDetailModal(false)
+    }
+    // RatingModal
     function openRatingModal() {
         setShowRatingModal(true);
+    }
+    function ShowRatingModal() {
+        setShowRatingModal(false)
     }
 
     return (
@@ -76,8 +82,16 @@ function FilmCard({ film }) {
 
             {showDetailModal &&
                 <FilmDetail
-                    onCloseD={() => setShowDetailModal(false)} userRating={avgRating} />}
-            {showRatingModal && <Rating onCloseR={() => setShowRatingModal(false)} FilmTitle={film} storeUserRating={handleNewRating} averageRating={avgRating} />}
+                    onCloseD={ShowDetailModal}
+                    userRating={avgRating} />
+            }
+
+            {showRatingModal &&
+                <Rating
+                    onCloseR={ShowRatingModal}
+                    FilmTitle={film}
+                    storeUserRating={handleNewRating}
+                    averageRating={avgRating} />}
         </>
     );
 }
