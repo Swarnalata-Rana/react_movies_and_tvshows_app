@@ -1,120 +1,85 @@
-"use client"
-import React, { useContext, useEffect, useState } from 'react';
-import Rating from './Rating';
-import FilmDetail from './FilmDetail';
-import { FilmContext } from '../context/FilmContext';
+"use client";
+import React, { useContext, useEffect, useState } from "react";
+import Rating from "./Rating";
+import FilmDetail from "./FilmDetail";
+import { FilmContext } from "../context/FilmContext";
 
-const FilmCard = ({ film }) => {
-
+function FilmCard({ film }) {
     const { fetchFilmDetails } = useContext(FilmContext);
-
     const [showDetailModal, setShowDetailModal] = useState(false);
     const [showRatingModal, setShowRatingModal] = useState(false);
     const [ratings, setRatings] = useState([]);
     const [avgRating, setAvgRating] = useState(0);
 
-    function calculateAvgRating(newRatings) {
+
+    function calculateAvgRating(ratingsArray) {
         let sum = 0;
         let i = 0;
-        while (i < newRatings.length) {
-            sum += newRatings[i];
+        while (i < ratingsArray.length) {
+            sum += ratingsArray[i];
             i++;
         }
-        return sum / newRatings.length;
+        return ratingsArray.length > 0 ? (sum / ratingsArray.length).toFixed(1) : 0;
     }
 
-    useEffect(function () {
-        const ratingKey = `avgRating-${film.imdbID}`;
-        const storedAvg = localStorage.getItem(ratingKey);
+    useEffect(() => {
+        const ratingKey = `ratings-${film.imdbID}`;
+        const storedRatings = JSON.parse(localStorage.getItem(ratingKey)) || [];
 
-        if (storedAvg) {
-            setAvgRating(Number(storedAvg));
-        }
-        else {
-            setAvgRating(0);
-        }
+        setRatings(storedRatings);
+        setAvgRating(storedRatings.length ? calculateAvgRating(storedRatings) : 0);
     }, [film.imdbID]);
+
 
     function handleNewRating(newRating) {
         const updatedRatings = [...ratings, newRating];
         setRatings(updatedRatings);
 
-        if (updatedRatings.length > 0) {
-            const newAvgRating = calculateAvgRating(updatedRatings).toFixed(1);
-            setAvgRating(newAvgRating);
-            localStorage.setItem(`avgRating-${film.imdbID}`, newAvgRating);
+        let sum = 0;
+        let i = 0;
+        while (i < updatedRatings.length) {
+            sum += updatedRatings[i];
+            i++;
         }
-        else {
-            setAvgRating(0);
-        }
+
+        const newAvgRating = updatedRatings.length ? (sum / updatedRatings.length).toFixed(1) : 0;
+        setAvgRating(newAvgRating);
+
+        localStorage.setItem(`ratings-${film.imdbID}`, JSON.stringify(updatedRatings));
+        localStorage.setItem(`avgRating-${film.imdbID}`, newAvgRating);
     }
 
-    // DetalisModal
-    function handleDetailClick() {
+
+    function openDetailModal() {
         setShowDetailModal(true);
         fetchFilmDetails(film.imdbID);
     }
 
-    function handleCloseDetailModal() {
-        setShowDetailModal(false);
-    }
-
-    //RatingModal
-    function handleRatingClick() {
+    function openRatingModal() {
         setShowRatingModal(true);
     }
 
-    function handleCloseRatingModal() {
-        setShowRatingModal(false);
-    }
-
-
     return (
         <>
-
             <div className="filmcard-main">
-                <img src={film.Poster} />
-                <div className='filmcard-content'>
-                    <div className='filmcard-content1'>
-                        <p className='film-title'>{film.Title}</p>
-                        <p className='film-year'>{film.Year}</p>
-                        <div className="avg">
-                            <span className='span-star'>★</span> : {avgRating} / 5
-                        </div>
-                        <div className='rating-btn-div'>
-                            <button className="rating-btn" onClick={handleRatingClick}>
-                                Rate
-                            </button>
-                        </div>
-                        <div className='rating-btn-div'>
-                            <button className="detailing-btn" onClick={handleDetailClick}>
-                                Details
-                            </button>
-                        </div>
+                <img src={film.Poster} alt="Film Poster" />
+                <div className="filmcard-content">
+                    <p className="film-title">{film.Title}</p>
+                    <p className="film-year">{film.Year}</p>
+                    <div className="avg">
+                        <span className="span-star">★</span> : {avgRating} / 5
                     </div>
+                    <button className="rating-btn" onClick={openRatingModal}>Rate</button>
+                    <button className="detailing-btn" onClick={openDetailModal}>Details</button>
                 </div>
             </div>
 
             {showDetailModal &&
                 <FilmDetail
-                    onCloseD={handleCloseDetailModal}
-                    userRating={avgRating}
-                />}
-
-            {showRatingModal && (
-                <Rating
-                    onCloseR={handleCloseRatingModal}
-                    FilmTitle={film}
-                    storeUserRating={handleNewRating}
-                    averageRating={avgRating}
-                />
-            )}
+                    onCloseD={() => setShowDetailModal(false)} userRating={avgRating} />}
+            {showRatingModal && <Rating onCloseR={() => setShowRatingModal(false)} FilmTitle={film} storeUserRating={handleNewRating} averageRating={avgRating} />}
         </>
     );
-};
+}
 
 export default FilmCard;
-
-
-
-

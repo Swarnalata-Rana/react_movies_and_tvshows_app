@@ -70,7 +70,6 @@ const Rating = ({ onCloseR, FilmTitle, storeUserRating, averageRating }) => {
                     <div className="avgR">
                         <span className='span-star'>★</span> : {tempRating} /5
                     </div>
-
                     <div>
                         <span
                             className={`star ${selectedRating >= 1 ? 'selected' : ''}`}
@@ -118,7 +117,9 @@ const Rating = ({ onCloseR, FilmTitle, storeUserRating, averageRating }) => {
                 </div>
             </div>
         </div>
-    );
+    ); 
 };
 
 export default Rating;
+
+
