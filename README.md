@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Movie and TV Shows React Application
 
-First, run the development server:
+## Description
+This single-page React application displays a homepage with a Navbar, a search bar, and a list of movies fetched from the OMDB API. Users can search for specific movies by name, and if the movie is found, it will be displayed on the homepage. If the movie is not found, a "No movie found" message will appear.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Users can also view detailed information about each movie and rate it multiple times. The average rating is calculated and displayed to the user. Even after refreshing the page, the average rating persists, allowing users to see the previous rating for the movie.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Prerequisites
+Make sure you have Node.js installed on your system. If not, download and install it from [Node.js Official Website](https://nodejs.org/).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Steps to run the project locally:
 
-## Learn More
+1. Clone the repository:
+   ```bash
+ Git Clone - https://github.com/Swarnalata-Rana/react_movies_and_tvshows_app
 
-To learn more about Next.js, take a look at the following resources:
+2. Navigate into the project directory:
+ cd react-movies-and-tvshows-app
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. npm install
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. Start the application:
+ npm run dev
 
-## Deploy on Vercel
+    
+## Demo
+You can check out the live demo of the project by visiting the following link:https://react-movies-and-tvshows-app.vercel.app/
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-Movie Search:  Allows users to search for movies using the search bar.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-Movie Details: View detailed information about the selected movie.
+
+-Movie Rating: Rate movies multiple times and see the average rating.
+
+-Persistent Ratings: Average rating persists across page refreshes.
+
+-Error Handling: Displays "No movie found" if the movie is not available in the OMDb API.
+
+## Technologies Used
+React.js: JavaScript library for building user interfaces.
+
+IMDb API: Used to fetch movie data.
+
+Local Storage: To persist user ratings across page reloads.
+
+CSS: For styling the application.
+
+Vercel: This is for hosting the app for production deployment.
