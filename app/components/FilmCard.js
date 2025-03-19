@@ -50,18 +50,18 @@ function FilmCard({ film }) {
     }
 
     // DetailsModal
-    function openDetailModal() {
+    function handleDetailClick() {
         setShowDetailModal(true);
         fetchFilmDetails(film.imdbID);
     }
-    function ShowDetailModal() {
+    function handleCloseDetailModal() {
         setShowDetailModal(false)
     }
     // RatingModal
-    function openRatingModal() {
+    function handleRatingClick() {
         setShowRatingModal(true);
     }
-    function ShowRatingModal() {
+    function handleCloseRatingModal() {
         setShowRatingModal(false)
     }
 
@@ -75,20 +75,20 @@ function FilmCard({ film }) {
                     <div className="avg">
                         <span className="span-star">★</span> : {avgRating} / 5
                     </div>
-                    <button className="rating-btn" onClick={openRatingModal}>Rate</button>
-                    <button className="detailing-btn" onClick={openDetailModal}>Details</button>
+                    <button className="rating-btn" onClick={handleRatingClick}>Rate</button>
+                    <button className="detailing-btn" onClick={handleDetailClick}>Details</button>
                 </div>
             </div>
 
             {showDetailModal &&
                 <FilmDetail
-                    onCloseD={ShowDetailModal}
+                    onCloseD={handleCloseDetailModal}
                     userRating={avgRating} />
             }
 
             {showRatingModal &&
                 <Rating
-                    onCloseR={ShowRatingModal}
+                    onCloseR={handleCloseRatingModal}
                     FilmTitle={film}
                     storeUserRating={handleNewRating}
                     averageRating={avgRating} />}
