@@ -20,7 +20,7 @@ Make sure you have Node.js installed on your system. If not, download and instal
 2. Navigate into the project directory:
  cd react-movies-and-tvshows-app
 
-3.npm install
+3. npm install
 
 4. Start the application:
  npm run dev
