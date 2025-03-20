@@ -70,13 +70,16 @@ function FilmCard({ film }) {
             <div className="filmcard-main">
                 <img src={film.Poster} alt="Film Poster" />
                 <div className="filmcard-content">
-                    <p className="film-title">{film.Title}</p>
-                    <p className="film-year">{film.Year}</p>
-                    <div className="avg">
-                        <span className="span-star">★</span> : {avgRating} / 5
+                    <div className="filmcard-content1">
+                        <p className="film-title">{film.Title}</p>
+                        <p className="film-year">{film.Year}</p>
+                        <div className="avg">
+                            <span className="span-star">★</span> : {avgRating} / 5
+                        </div>
+                        <button className="rating-btn" onClick={handleRatingClick}>Rate</button>
+                        <button className="detailing-btn" onClick={handleDetailClick}>Details</button>
+
                     </div>
-                    <button className="rating-btn" onClick={handleRatingClick}>Rate</button>
-                    <button className="detailing-btn" onClick={handleDetailClick}>Details</button>
                 </div>
             </div>
 
