@@ -36,7 +36,7 @@ const HomePage = () => {
                 <div className="homepage-main">
                     <Search />
                     <div className='home-page1'>
-                        <Photo />
+                        {/* <Photo /> */}
                         <div className="film-list">
                             {filmcontent}
                         </div>
